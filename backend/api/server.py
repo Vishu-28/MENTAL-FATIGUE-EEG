@@ -93,6 +93,10 @@ def get_eeg_data():
 # -------------------------------
 
 @app.route("/")
+def home():
+    return {"message": "Mental Fatigue Detection API running."}
+
+@app.route("/")
 def serve_frontend():
     return send_from_directory(app.static_folder, "index.html")
 
