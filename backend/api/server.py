@@ -21,10 +21,14 @@ frontend_path = os.path.abspath(
     "../../frontend/dist")
 )
 
+dataset_path = os.path.abspath(
+    os.path.join(os.path.dirname(__file__),"../../dataset/emotions.xlsx")
+)
+
 app = Flask(__name__, static_folder=frontend_path, static_url_path="/")
 CORS(app)
 
-dataset = EEGDataset("../../dataset/emotions.xlsx")
+dataset = EEGDataset(dataset_path)
 emotion_model = EmotionModel()
 history = EmotionHistory()
 
